@@ -9,7 +9,8 @@ app.use(bodyParser.json());
 app.use('/uploads', express.static('uploads'));
 
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/gallery', {
+mongoose.connect(process.env.MONGO_URI)
+, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 }).then(() => console.log('MongoDB connected'))
